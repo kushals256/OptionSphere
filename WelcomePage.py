@@ -189,10 +189,30 @@ elif st.session_state.page == "results":
         st.write(f"Expiry: {row_details['Expiry']}")
 
     # Select button to confirm the row selection
-if st.button("Select Row"):
-    st.session_state.selected_row = row_details
-    st.write("Redirecting to the main app...")
-    st.write(f"[Click here to proceed](https://optionspheremain.streamlit.app/)")
+# Redirect to the specified URL when the button is clicked
+button_html = """
+    <style>
+    .button-link {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        color: white;
+        background-color: #007bff;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        text-align: center;
+        cursor: pointer;
+    }
+    .button-link:hover {
+        background-color: #0056b3;
+    }
+    </style>
+    <a href="https://optionspheremain.streamlit.app/" target="_self" class="button-link">Select Row</a>
+"""
+st.markdown(button_html, unsafe_allow_html=True)
+
 
 
 
