@@ -72,6 +72,9 @@ st.markdown(
         .footer a:hover {
             text-decoration: underline;
         }
+        .wel {
+            background-color: #424242;
+        }
     </style>
     """,
     unsafe_allow_html=True
@@ -96,8 +99,10 @@ if st.session_state.page == "home":
     # Home Page
     st.markdown(
         """
+        <div class="wel">
         <div class="main-title">Welcome to OptionSphere</div>
         <div class="sub-title">Ai-Driven Analytics for Better Option Pricing</div>
+        </div>
         """,
         unsafe_allow_html=True
     )
