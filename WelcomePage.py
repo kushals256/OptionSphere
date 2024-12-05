@@ -73,7 +73,8 @@ st.markdown(
             text-decoration: underline;
         }
         .wel {
-            background-color: #424242;
+            background-color: rgba(66, 66, 66, 0.5);
+;
         }
     </style>
     """,
