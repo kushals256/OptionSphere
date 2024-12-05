@@ -29,7 +29,7 @@ st.markdown(
             color: white;
             margin: 0;
             padding: 0;
-            background-image: url("images/wallpaper.png");
+            background-image: url("https://plus.unsplash.com/premium_photo-1664476845274-27c2dabdd7f0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8c3RvY2slMjBtYXJrZXR8ZW58MHx8MHx8fDA%3D");
             background-size: cover;
             background-attachment: fixed;
         }
