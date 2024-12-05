@@ -1,11 +1,11 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+
 # Set page configuration
 
 
 st.set_page_config(page_title="OptionSphere", page_icon="\U0001F4B0", layout="centered")
-
 
 # Custom CSS for Animations and Enhanced Design
 st.markdown(
@@ -17,7 +17,7 @@ st.markdown(
 #           color: white;
 #           margin: 0;
 #           padding: 0;
-            
+
 #           background-image: url("https://plus.unsplash.com/premium_photo-1664476845274-27c2dabdd7f0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8c3RvY2slMjBtYXJrZXR8ZW58MHx8MHx8fDA%3D");
 #           background-size: cover;
 #           background-attachment: fixed;
@@ -29,7 +29,7 @@ st.markdown(
             color: white;
             margin: 0;
             padding: 0;
-            background-image: url("wallpaper.png");
+            background-image: url("https://plus.unsplash.com/premium_photo-1664476845274-27c2dabdd7f0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8c3RvY2slMjBtYXJrZXR8ZW58MHx8MHx8fDA%3D");
             background-size: cover;
             background-attachment: fixed;
         }
@@ -74,7 +74,6 @@ st.markdown(
         }
         .wel {
             background-color: rgba(66, 66, 66, 0.5);
-;
         }
     </style>
     """,
@@ -89,11 +88,13 @@ if "search_query" not in st.session_state:
 if "option" not in st.session_state:
     st.session_state.option = ""
 
+
 # Function to reset session state
 def reset_to_home():
     st.session_state.page = "home"
     st.session_state.search_query = ""
     st.session_state.option = ""
+
 
 # Page Logic
 if st.session_state.page == "home":
@@ -164,7 +165,8 @@ elif st.session_state.page == "results":
         'Trading Symbol': [f'SYM{i}' for i in range(51)],
         'Strike Price': np.round(np.random.uniform(100, 200, 51), 2),  # Random strike prices between 100 and 200
         'Instrument Type': ['Option' if i % 2 == 0 else 'Future' for i in range(51)],
-        'Expiry': pd.to_datetime(np.random.choice(pd.date_range('2024-12-01', '2025-12-31', freq='D'), 51)),  # Random expiry dates
+        'Expiry': pd.to_datetime(np.random.choice(pd.date_range('2024-12-01', '2025-12-31', freq='D'), 51)),
+        # Random expiry dates
         'Instrument Key': [f'KEY{i}' for i in range(51)],
     }
 
@@ -213,31 +215,27 @@ button_html = """
 """
 st.markdown(button_html, unsafe_allow_html=True)
 
-
-
-
-
-    # Back button
-    if st.button("Go Back"):
-        reset_to_home()
-        st.experimental_rerun()
+# Back button
+if st.button("Go Back"):
+    reset_to_home()
+    st.experimental_rerun()
 
 # Details Page
 elif st.session_state.page == "details":
     st.title("Selected Row Details")
     row_details = st.session_state.selected_row  # Access selected row from session state
 
-    if row_details is not None:
-        st.write(f"Name: {row_details['Name']}")
-        st.write(f"Instrument Key: {row_details['Instrument Key']}")
-        st.write(f"Strike Price: {row_details['Strike Price']}")
-        st.write(f"Instrument Type: {row_details['Instrument Type']}")
-        st.write(f"Expiry: {row_details['Expiry']}")
+if row_details is not None:
+    st.write(f"Name: {row_details['Name']}")
+    st.write(f"Instrument Key: {row_details['Instrument Key']}")
+    st.write(f"Strike Price: {row_details['Strike Price']}")
+    st.write(f"Instrument Type: {row_details['Instrument Type']}")
+    st.write(f"Expiry: {row_details['Expiry']}")
 
-    # Back to Home Page
-    if st.button("Back to Home"):
-        reset_to_home()
-        st.experimental_rerun()
+# Back to Home Page
+if st.button("Back to Home"):
+    reset_to_home()
+    st.experimental_rerun()
 
 # Footer
 st.markdown(
