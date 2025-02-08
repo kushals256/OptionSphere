@@ -230,7 +230,7 @@ theta = py_vollib.black_scholes.greeks.numerical.theta(flag, underlying_price[-1
 import os
 import google.generativeai as genai
 
-genai.configure(api_key="AIzaSyAv2kl83a0u9QFuN6bgBW1rzT77mJ6zdho")
+genai.configure(api_key="API_KEY")
 
 # Create the model
 generation_config = {
